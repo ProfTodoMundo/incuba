@@ -1,20 +1,1218 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Incuba | Analítica Aplicada</title>
-    <link rel="stylesheet" href="css/styles.css">
+
+    <meta
+        name="description"
+        content="Creamos la presencia digital que tu negocio necesita. Landing pages, catálogos digitales, códigos QR, automatización y soluciones tecnológicas para emprendedores."
+    >
+
+    <style>
+
+        /* =========================================================
+           VARIABLES INSTITUCIONALES
+        ========================================================= */
+
+        :root {
+            --color-oscuro: #172554;
+            --color-profundo: #1e2f78;
+            --color-principal: #3b5bdb;
+            --color-secundario: #6574e8;
+            --color-claro: #a5b4fc;
+            --color-suave: #eef1ff;
+
+            --blanco: #ffffff;
+            --fondo: #f7f8fc;
+            --texto: #20263a;
+            --texto-suave: #626a7f;
+
+            --borde: rgba(45, 62, 145, 0.1);
+            --sombra: 0 12px 32px rgba(31, 48, 120, 0.1);
+            --sombra-hover: 0 20px 45px rgba(31, 48, 120, 0.16);
+
+            --radio: 18px;
+            --ancho-maximo: 1180px;
+        }
+
+
+        /* =========================================================
+           CONFIGURACIÓN GENERAL
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--fondo);
+            color: var(--texto);
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =========================================================
+           ENCABEZADO Y NAVEGACIÓN
+        ========================================================= */
+
+        header {
+            min-height: 92vh;
+            position: relative;
+            overflow: hidden;
+            color: var(--blanco);
+
+            background:
+                radial-gradient(
+                    circle at 88% 15%,
+                    rgba(165, 180, 252, 0.27),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 12% 86%,
+                    rgba(92, 110, 220, 0.28),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    135deg,
+                    #10183f 0%,
+                    #253e9e 52%,
+                    #536fe5 100%
+                );
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+
+            width: 430px;
+            height: 430px;
+
+            right: -170px;
+            top: -190px;
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+
+            width: 340px;
+            height: 340px;
+
+            left: -200px;
+            bottom: -190px;
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .navbar {
+            width: min(
+                var(--ancho-maximo),
+                calc(100% - 48px)
+            );
+
+            margin: 0 auto;
+            padding: 25px 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: relative;
+            z-index: 3;
+        }
+
+        .marca {
+            color: var(--blanco);
+            font-size: 1.45rem;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: -0.03em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.84);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--blanco);
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            width: min(
+                1050px,
+                calc(100% - 48px)
+            );
+
+            margin: 0 auto;
+            padding: 88px 0 125px;
+
+            text-align: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .etiqueta {
+            margin-bottom: 20px;
+
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 0.86rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        header h1 {
+            color: var(--blanco);
+
+            font-size: clamp(
+                4.5rem,
+                11vw,
+                8rem
+            );
+
+            line-height: 0.92;
+            letter-spacing: -0.065em;
+        }
+
+        .hero h2 {
+            max-width: 900px;
+            margin: 35px auto 0;
+
+            color: var(--blanco);
+
+            font-size: clamp(
+                2rem,
+                5vw,
+                4.2rem
+            );
+
+            line-height: 1.05;
+            letter-spacing: -0.045em;
+        }
+
+        .hero-descripcion {
+            max-width: 760px;
+            margin: 28px auto 0;
+
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 1.18rem;
+            line-height: 1.75;
+        }
+
+        .hero-botones {
+            margin-top: 38px;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .boton {
+            min-height: 54px;
+            padding: 0 28px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 999px;
+
+            font-weight: 750;
+            text-decoration: none;
+
+            transition:
+                transform 0.2s ease,
+                background-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .boton:hover {
+            transform: translateY(-2px);
+        }
+
+        .boton-principal {
+            background: var(--blanco);
+            color: var(--color-oscuro);
+
+            box-shadow:
+                0 10px 30px
+                rgba(13, 22, 67, 0.2);
+        }
+
+        .boton-principal:hover {
+            box-shadow:
+                0 14px 34px
+                rgba(13, 22, 67, 0.28);
+        }
+
+        .boton-secundario {
+            color: var(--blanco);
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.42);
+        }
+
+        .boton-secundario:hover {
+            background:
+                rgba(255, 255, 255, 0.16);
+        }
+
+
+        /* =========================================================
+           SECCIONES GENERALES
+        ========================================================= */
+
+        main {
+            overflow: hidden;
+        }
+
+        section {
+            width: min(
+                var(--ancho-maximo),
+                calc(100% - 48px)
+            );
+
+            margin: 0 auto;
+            padding: 90px 0;
+        }
+
+        .etiqueta-seccion {
+            margin-bottom: 12px;
+
+            color: var(--color-principal);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        section h2 {
+            max-width: 850px;
+            margin-bottom: 25px;
+
+            color: var(--color-oscuro);
+
+            font-size: clamp(
+                2.2rem,
+                4.5vw,
+                3.6rem
+            );
+
+            line-height: 1.08;
+            letter-spacing: -0.04em;
+        }
+
+        .texto-seccion {
+            max-width: 900px;
+
+            color: var(--texto-suave);
+            font-size: 1.08rem;
+            line-height: 1.85;
+        }
+
+
+        /* =========================================================
+           PROPÓSITO
+        ========================================================= */
+
+        .introduccion {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+
+        /* =========================================================
+           SERVICIOS
+        ========================================================= */
+
+        .grid {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 24px;
+        }
+
+        .card {
+            min-height: 220px;
+            padding: 32px;
+
+            background: var(--blanco);
+
+            border:
+                1px solid
+                var(--borde);
+
+            border-radius: var(--radio);
+            box-shadow: var(--sombra);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sombra-hover);
+
+            border-color:
+                rgba(59, 91, 219, 0.18);
+        }
+
+        .card-icono {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--color-profundo);
+            background: var(--color-suave);
+
+            border-radius: 13px;
+            font-size: 1.35rem;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+
+            color: var(--color-oscuro);
+            font-size: 1.28rem;
+        }
+
+        .card p {
+            color: var(--texto-suave);
+        }
+
+
+        /* =========================================================
+           CASO DE ÉXITO
+        ========================================================= */
+
+        .caso {
+            padding: 45px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef1ff 0%,
+                    #ffffff 70%
+                );
+
+            border:
+                1px solid
+                rgba(59, 91, 219, 0.12);
+
+            border-radius: 24px;
+            box-shadow: var(--sombra);
+        }
+
+        .caso-visual {
+            min-height: 350px;
+            padding: 35px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            color: var(--blanco);
+
+            background:
+                radial-gradient(
+                    circle at 78% 20%,
+                    rgba(190, 199, 255, 0.3),
+                    transparent 31%
+                ),
+                linear-gradient(
+                    145deg,
+                    #18275f 0%,
+                    #3654c8 55%,
+                    #6574e8 100%
+                );
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 18px 35px
+                rgba(30, 47, 120, 0.2);
+        }
+
+        .caso-visual span {
+            color: rgba(255, 255, 255, 0.75);
+
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .caso-visual h3 {
+            margin-top: 8px;
+            color: var(--blanco);
+            font-size: 2.4rem;
+        }
+
+        .caso-contenido h3 {
+            margin-bottom: 18px;
+
+            color: var(--color-oscuro);
+            font-size: 2rem;
+            line-height: 1.25;
+        }
+
+        .caso-contenido p {
+            margin-bottom: 25px;
+            color: var(--texto-suave);
+        }
+
+        .lista-servicios {
+            margin-bottom: 30px;
+
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .lista-servicios span {
+            padding: 8px 13px;
+
+            color: var(--color-profundo);
+            background: var(--color-suave);
+
+            border:
+                1px solid
+                rgba(59, 91, 219, 0.1);
+
+            border-radius: 999px;
+
+            font-size: 0.83rem;
+            font-weight: 700;
+        }
+
+        .enlace-caso {
+            color: var(--color-principal);
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .enlace-caso:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================================
+           VISIÓN
+        ========================================================= */
+
+        .vision {
+            padding: 70px;
+
+            color: var(--blanco);
+
+            background:
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(177, 188, 255, 0.24),
+                    transparent 34%
+                ),
+                linear-gradient(
+                    135deg,
+                    #121d4f 0%,
+                    #2f4bbd 65%,
+                    #526be0 100%
+                );
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 22px 45px
+                rgba(30, 47, 120, 0.16);
+        }
+
+        .vision .etiqueta-seccion {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .vision h2 {
+            color: var(--blanco);
+        }
+
+        .vision p {
+            max-width: 950px;
+
+            color: rgba(255, 255, 255, 0.84);
+            font-size: 1.08rem;
+        }
+
+
+        /* =========================================================
+           PRÓXIMAMENTE
+        ========================================================= */
+
+        .grid-proximamente {
+            display: grid;
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .proximo {
+            padding: 24px;
+
+            display: flex;
+            align-items: center;
+            gap: 13px;
+
+            background: var(--blanco);
+
+            border:
+                1px solid
+                var(--borde);
+
+            border-radius: 15px;
+            box-shadow: var(--sombra);
+
+            color: var(--texto);
+            font-weight: 700;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .proximo:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-hover);
+        }
+
+        .proximo span {
+            font-size: 1.3rem;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            margin-top: 70px;
+            padding: 65px 24px;
+
+            color: var(--blanco);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #10183f,
+                    #1e2f78
+                );
+
+            text-align: center;
+        }
+
+        footer h2 {
+            margin-bottom: 12px;
+
+            color: var(--blanco);
+            font-size: 2.2rem;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        footer strong {
+            color: var(--blanco);
+        }
+
+
+        /* =========================================================
+           ACCESIBILIDAD
+        ========================================================= */
+
+        a:focus-visible {
+            outline: 3px solid var(--color-claro);
+            outline-offset: 4px;
+        }
+
+
+        /* =========================================================
+           DISEÑO RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .introduccion,
+            .caso {
+                grid-template-columns: 1fr;
+            }
+
+            .grid,
+            .grid-proximamente {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .caso-visual {
+                min-height: 280px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                width: min(
+                    calc(100% - 32px),
+                    var(--ancho-maximo)
+                );
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            header {
+                min-height: auto;
+            }
+
+            .hero {
+                width: min(
+                    calc(100% - 32px),
+                    1050px
+                );
+
+                padding: 70px 0 90px;
+            }
+
+            header h1 {
+                font-size: 4.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2.35rem;
+            }
+
+            .hero-descripcion {
+                font-size: 1.05rem;
+            }
+
+            .hero-botones {
+                flex-direction: column;
+            }
+
+            .boton {
+                width: 100%;
+            }
+
+            section {
+                width: min(
+                    calc(100% - 32px),
+                    var(--ancho-maximo)
+                );
+
+                padding: 65px 0;
+            }
+
+            .grid,
+            .grid-proximamente {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                min-height: auto;
+            }
+
+            .caso {
+                padding: 25px;
+                gap: 30px;
+            }
+
+            .caso-contenido h3 {
+                font-size: 1.65rem;
+            }
+
+            .vision {
+                padding: 38px 25px;
+            }
+
+            footer {
+                margin-top: 35px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
+
+    <header id="inicio">
+
+        <nav class="navbar">
+
+            <a
+                href="#inicio"
+                class="marca"
+                aria-label="Volver al inicio"
+            >
+                Incuba
+            </a>
+
+            <div class="nav-links">
+                <a href="#origen">Origen</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#casos">Casos de éxito</a>
+                <a href="#vision">Visión</a>
+            </div>
+
+        </nav>
+
+        <div class="hero">
+
+            <p class="etiqueta">
+                Una iniciativa de Analítica Aplicada
+            </p>
+
+            <h1>
+                Incuba
+            </h1>
+
+            <h2>
+                Transformamos ideas en presencia digital.
+            </h2>
+
+            <p class="hero-descripcion">
+                Ayudamos a emprendedores, profesionistas y pequeños
+                negocios a construir una presencia digital profesional,
+                accesible y preparada para crecer.
+            </p>
+
+            <div class="hero-botones">
+
+                <a
+                    href="#servicios"
+                    class="boton boton-principal"
+                >
+                    Conoce nuestros servicios
+                </a>
+
+                <a
+                    href="#casos"
+                    class="boton boton-secundario"
+                >
+                    Ver casos de éxito
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
     <main>
-        <h1>Incuba</h1>
-        <p>Una iniciativa de Analítica Aplicada.</p>
-        <p>Estamos construyendo la presencia digital que tu negocio necesita.</p>
+
+        <section id="origen">
+
+            <div class="introduccion">
+
+                <div>
+
+                    <p class="etiqueta-seccion">
+                        Nuestro propósito
+                    </p>
+
+                    <h2>
+                        ¿Por qué nace Incuba?
+                    </h2>
+
+                </div>
+
+                <div class="texto-seccion">
+
+                    <p>
+                        Muchos emprendedores tienen excelentes productos
+                        y servicios, pero todavía no cuentan con una
+                        presencia digital profesional.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        En Incuba creemos que tener una página web no debe
+                        ser complicado ni costoso. Creamos soluciones
+                        sencillas, elegantes y funcionales para que tu
+                        negocio pueda mostrarse al mundo.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="servicios">
+
+            <p class="etiqueta-seccion">
+                Soluciones digitales
+            </p>
+
+            <h2>
+                ¿Qué hacemos?
+            </h2>
+
+            <div class="grid">
+
+                <article class="card">
+
+                    <div class="card-icono">
+                        🌐
+                    </div>
+
+                    <h3>
+                        Landing pages
+                    </h3>
+
+                    <p>
+                        Sitios modernos para presentar tu negocio y
+                        facilitar el contacto con tus clientes.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icono">
+                        📱
+                    </div>
+
+                    <h3>
+                        Catálogos digitales
+                    </h3>
+
+                    <p>
+                        Presenta tus productos de manera profesional
+                        desde cualquier teléfono.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icono">
+                        ▦
+                    </div>
+
+                    <h3>
+                        Códigos QR
+                    </h3>
+
+                    <p>
+                        Conecta tus materiales con WhatsApp, redes
+                        sociales, sitios web y medios de pago.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icono">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        Automatización
+                    </h3>
+
+                    <p>
+                        Herramientas sencillas para ahorrar tiempo y
+                        mejorar la atención a tus clientes.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icono">
+                        📊
+                    </div>
+
+                    <h3>
+                        Analítica
+                    </h3>
+
+                    <p>
+                        Conoce cómo llegan tus clientes y descubre
+                        oportunidades para mejorar tu presencia digital.
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icono">
+                        ✦
+                    </div>
+
+                    <h3>
+                        Identidad digital
+                    </h3>
+
+                    <p>
+                        Creamos una imagen coherente para que tu proyecto
+                        inspire confianza y profesionalismo.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <section id="casos">
+
+            <p class="etiqueta-seccion">
+                Casos de éxito
+            </p>
+
+            <h2>
+                Proyectos que comienzan a crecer.
+            </h2>
+
+            <div class="caso">
+
+                <div class="caso-visual">
+
+                    <span>
+                        Primer proyecto
+                    </span>
+
+                    <h3>
+                        Unidad Bony
+                    </h3>
+
+                </div>
+
+                <div class="caso-contenido">
+
+                    <h3>
+                        Una presencia digital para más de 35 años
+                        de experiencia.
+                    </h3>
+
+                    <p>
+                        Desarrollamos una página para una promotora de
+                        Tupperware con más de 35 años de experiencia.
+                        El proyecto demuestra que cualquier emprendedor
+                        puede contar con una presencia digital elegante,
+                        útil y fácil de compartir.
+                    </p>
+
+                    <div class="lista-servicios">
+
+                        <span>
+                            Landing page
+                        </span>
+
+                        <span>
+                            Catálogo digital
+                        </span>
+
+                        <span>
+                            WhatsApp
+                        </span>
+
+                        <span>
+                            Código QR
+                        </span>
+
+                    </div>
+
+                    <a
+                        href="#"
+                        class="enlace-caso"
+                    >
+                        Conocer el proyecto →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="vision">
+
+            <div class="vision">
+
+                <p class="etiqueta-seccion">
+                    Nuestra visión
+                </p>
+
+                <h2>
+                    No creamos solamente páginas web.
+                </h2>
+
+                <p>
+                    Queremos construir un espacio donde los emprendedores
+                    encuentren herramientas tecnológicas para hacer crecer
+                    sus proyectos. Hoy comenzamos con sitios web. Mañana
+                    incorporaremos automatización, inteligencia artificial,
+                    catálogos inteligentes, analítica y nuevas soluciones
+                    digitales.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="proximamente">
+
+            <p class="etiqueta-seccion">
+                Lo que viene
+            </p>
+
+            <h2>
+                Próximamente
+            </h2>
+
+            <div class="grid-proximamente">
+
+                <div class="proximo">
+                    <span>📱</span>
+                    Catálogos interactivos
+                </div>
+
+                <div class="proximo">
+                    <span>🤖</span>
+                    Inteligencia artificial
+                </div>
+
+                <div class="proximo">
+                    <span>📈</span>
+                    Analítica para negocios
+                </div>
+
+                <div class="proximo">
+                    <span>📦</span>
+                    Automatización
+                </div>
+
+                <div class="proximo">
+                    <span>💬</span>
+                    Integración con WhatsApp
+                </div>
+
+                <div class="proximo">
+                    <span>🌐</span>
+                    Más casos de éxito
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 
-    <script src="js/main.js"></script>
-</body>
-</html>
 
+    <footer>
+
+        <h2>
+            Incuba
+        </h2>
+
+        <p>
+            Una iniciativa de
+            <strong>Analítica Aplicada</strong>
+        </p>
+
+        <br>
+
+        <p>
+            Creamos la presencia digital que tu negocio necesita.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
