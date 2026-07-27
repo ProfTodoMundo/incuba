@@ -879,6 +879,249 @@
         max-width: none;
       }
     }
+
+        /* =====================================================
+       TRAYECTORIA Y EXPERIENCIAS
+       ===================================================== */
+
+    .trayectoria {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(255, 209, 102, 0.22),
+          transparent 30rem
+        ),
+        radial-gradient(
+          circle at bottom right,
+          rgba(111, 45, 189, 0.10),
+          transparent 32rem
+        ),
+        var(--blanco);
+    }
+
+    .trayectoria::before {
+      content: "";
+      position: absolute;
+      top: 4rem;
+      right: -8rem;
+      width: 22rem;
+      height: 22rem;
+      border: 1px solid rgba(111, 45, 189, 0.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .trayectoria-encabezado {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+
+    .trayectoria-galeria {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, minmax(260px, 330px));
+      gap: 1rem;
+    }
+
+    .trayectoria-foto {
+      position: relative;
+      min-width: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      border-radius: 26px;
+      background: var(--morado-oscuro);
+      box-shadow: var(--sombra-suave);
+      cursor: pointer;
+      isolation: isolate;
+    }
+
+    .trayectoria-foto-principal {
+      grid-column: span 6;
+      grid-row: span 2;
+    }
+
+    .trayectoria-foto-crucero {
+      grid-column: span 3;
+    }
+
+    .trayectoria-foto-evento-uno {
+      grid-column: span 3;
+    }
+
+    .trayectoria-foto-evento-dos {
+      grid-column: span 3;
+    }
+
+    .trayectoria-foto-mazatlan {
+      grid-column: span 3;
+    }
+
+    .trayectoria-foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+    }
+
+    .trayectoria-foto-principal img {
+      object-position: center center;
+    }
+
+    .trayectoria-foto-crucero img {
+      object-position: center center;
+    }
+
+    .trayectoria-foto-evento-uno img,
+    .trayectoria-foto-evento-dos img {
+      object-position: center 24%;
+    }
+
+    .trayectoria-foto-mazatlan img {
+      object-position: center center;
+    }
+
+    .trayectoria-foto::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(
+          180deg,
+          transparent 38%,
+          rgba(31, 12, 48, 0.82) 100%
+        );
+      pointer-events: none;
+    }
+
+    .trayectoria-overlay {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2rem;
+      padding: 1.4rem;
+      color: var(--blanco);
+      text-align: left;
+      pointer-events: none;
+    }
+
+    .trayectoria-lugar {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+
+    .trayectoria-descripcion {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.82rem;
+      font-weight: 650;
+    }
+
+    .trayectoria-foto:hover img {
+      transform: scale(1.045);
+      filter: saturate(1.06);
+    }
+
+    .trayectoria-foto:focus-visible {
+      outline: 4px solid var(--amarillo);
+      outline-offset: 4px;
+    }
+
+    .trayectoria-mensaje {
+      max-width: 850px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem auto 0;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--borde);
+      border-radius: 22px;
+      color: var(--texto-suave);
+      background: rgba(255, 240, 246, 0.66);
+      text-align: center;
+    }
+
+    .trayectoria-mensaje span {
+      flex: 0 0 auto;
+      font-size: 2rem;
+    }
+
+    .trayectoria-mensaje p {
+      margin: 0;
+    }
+
+    @media (max-width: 920px) {
+      .trayectoria-galeria {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: none;
+      }
+
+      .trayectoria-foto,
+      .trayectoria-foto-principal,
+      .trayectoria-foto-crucero,
+      .trayectoria-foto-evento-uno,
+      .trayectoria-foto-evento-dos,
+      .trayectoria-foto-mazatlan {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 320px;
+      }
+
+      .trayectoria-foto-principal {
+        grid-column: span 2;
+        min-height: 520px;
+      }
+
+      .trayectoria-foto-mazatlan {
+        grid-column: span 2;
+        min-height: 400px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .trayectoria-galeria {
+        grid-template-columns: 1fr;
+      }
+
+      .trayectoria-foto,
+      .trayectoria-foto-principal,
+      .trayectoria-foto-crucero,
+      .trayectoria-foto-evento-uno,
+      .trayectoria-foto-evento-dos,
+      .trayectoria-foto-mazatlan {
+        grid-column: auto;
+        min-height: 360px;
+      }
+
+      .trayectoria-foto-principal {
+        min-height: 520px;
+      }
+
+      .trayectoria-foto-crucero,
+      .trayectoria-foto-mazatlan {
+        min-height: 300px;
+      }
+
+      .trayectoria-mensaje {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+    
   </style>
 </head>
 
@@ -1238,6 +1481,139 @@
             alt="Entrega de automóvil a Mercedes Rodríguez como reconocimiento a su trabajo"
             loading="lazy"
           />
+        </div>
+      </div>
+    </section>
+    <!-- Trayectoria y experiencias -->
+    <section class="trayectoria" id="trayectoria">
+      <div class="contenedor">
+        <div class="encabezado-seccion trayectoria-encabezado revelar">
+          <span class="etiqueta">Una historia construida con constancia</span>
+
+          <h2>Una trayectoria llena de experiencias</h2>
+
+          <p>
+            El trabajo constante no solo se refleja en ventas y reconocimientos.
+            A lo largo de su trayectoria, Mercedes también ha vivido viajes,
+            encuentros y momentos inolvidables junto a otras integrantes de
+            Tupperware.
+          </p>
+        </div>
+
+        <div class="trayectoria-galeria">
+          <!-- París -->
+          <button
+            class="trayectoria-foto trayectoria-foto-principal galeria-item revelar"
+            type="button"
+            data-imagen="img/trayectoria-paris.jpg"
+            aria-label="Ampliar fotografía del viaje a París"
+          >
+            <img
+              src="img/trayectoria-paris.jpg"
+              alt="Viaje grupal de Mercedes Rodríguez y compañeras frente a la Torre Eiffel en París"
+              loading="lazy"
+            />
+
+            <span class="trayectoria-overlay">
+              <span class="trayectoria-lugar">París</span>
+              <span class="trayectoria-descripcion">
+                Experiencias que cruzaron fronteras
+              </span>
+            </span>
+          </button>
+
+          <!-- Crucero -->
+          <button
+            class="trayectoria-foto trayectoria-foto-crucero galeria-item revelar"
+            type="button"
+            data-imagen="img/trayectoria-crucero.jpg"
+            aria-label="Ampliar fotografía del viaje en crucero"
+          >
+            <img
+              src="img/trayectoria-crucero.jpg"
+              alt="Recuerdo de Mercedes Rodríguez durante un viaje en el crucero Ocean Dream"
+              loading="lazy"
+            />
+
+            <span class="trayectoria-overlay">
+              <span class="trayectoria-lugar">Ocean Dream</span>
+              <span class="trayectoria-descripcion">
+                Un recuerdo a bordo
+              </span>
+            </span>
+          </button>
+
+          <!-- Evento 1 -->
+          <button
+            class="trayectoria-foto trayectoria-foto-evento-uno galeria-item revelar"
+            type="button"
+            data-imagen="img/trayectoria-evento-1.jpg"
+            aria-label="Ampliar fotografía de Mercedes en un evento"
+          >
+            <img
+              src="img/trayectoria-evento-1.jpg"
+              alt="Mercedes Rodríguez durante uno de los eventos de su trayectoria"
+              loading="lazy"
+            />
+
+            <span class="trayectoria-overlay">
+              <span class="trayectoria-lugar">Momentos especiales</span>
+              <span class="trayectoria-descripcion">
+                Encuentros y celebraciones
+              </span>
+            </span>
+          </button>
+
+          <!-- Evento 2 -->
+          <button
+            class="trayectoria-foto trayectoria-foto-evento-dos galeria-item revelar"
+            type="button"
+            data-imagen="img/trayectoria-evento-2.jpg"
+            aria-label="Ampliar fotografía de Mercedes durante una convivencia"
+          >
+            <img
+              src="img/trayectoria-evento-2.jpg"
+              alt="Mercedes Rodríguez durante una convivencia especial"
+              loading="lazy"
+            />
+
+            <span class="trayectoria-overlay">
+              <span class="trayectoria-lugar">Una historia personal</span>
+              <span class="trayectoria-descripcion">
+                Recuerdos de muchos años
+              </span>
+            </span>
+          </button>
+
+          <!-- Mazatlán -->
+          <button
+            class="trayectoria-foto trayectoria-foto-mazatlan galeria-item revelar"
+            type="button"
+            data-imagen="img/trayectoria-mazatlan.jpg"
+            aria-label="Ampliar fotografía del viaje a Mazatlán"
+          >
+            <img
+              src="img/trayectoria-mazatlan.jpg"
+              alt="Mercedes Rodríguez y una compañera durante una convivencia en Mazatlán en 2011"
+              loading="lazy"
+            />
+
+            <span class="trayectoria-overlay">
+              <span class="trayectoria-lugar">Mazatlán · 2011</span>
+              <span class="trayectoria-descripcion">
+                Viajes, compañerismo y alegría
+              </span>
+            </span>
+          </button>
+        </div>
+
+        <div class="trayectoria-mensaje revelar">
+          <span aria-hidden="true">✈️</span>
+
+          <p>
+            Cada fotografía guarda una parte de una trayectoria construida con
+            perseverancia, compañerismo y muchos años de trabajo.
+          </p>
         </div>
       </div>
     </section>
